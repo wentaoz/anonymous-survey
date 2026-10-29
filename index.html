@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>匿名意见箱</title>
+    <meta
+      name="description"
+      content="不记名意见箱。不填姓名、邮箱、工号，结果里也不写 IP 和设备信息。"
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <article class="letter">
+        <div class="topbar">
+          <div>
+            <p class="kicker">ANONYMOUS BOX</p>
+            <h1>匿名意见箱</h1>
+            <p class="lead">投入之后，没有人能对上是谁写的。</p>
+          </div>
+          <div class="seal" aria-hidden="true">不记名</div>
+        </div>
+
+        <ul class="promises">
+          <li>不填姓名、邮箱、工号，也不问部门。</li>
+          <li>结果里不写 IP、设备、浏览器。</li>
+          <li>只记下日期，不记下几点几分。</li>
+        </ul>
+
+        <form id="survey-form" autocomplete="off" novalidate>
+          <input
+            class="hp"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
+          <div class="field">
+            <p class="legend" id="category-label">这是哪一类</p>
+            <div class="chips" role="radiogroup" aria-labelledby="category-label">
+              <label class="chip">
+                <input type="radio" name="category" value="建议" />
+                建议
+              </label>
+              <label class="chip">
+                <input type="radio" name="category" value="问题" />
+                问题
+              </label>
+              <label class="chip">
+                <input type="radio" name="category" value="吐槽" />
+                吐槽
+              </label>
+              <label class="chip">
+                <input type="radio" name="category" value="认可" />
+                认可
+              </label>
+              <label class="chip">
+                <input type="radio" name="category" value="其他" />
+                其他
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <p class="legend" id="impact-label">
+              有多急
+              <span class="hint">可以不选</span>
+            </p>
+            <div class="chips" role="radiogroup" aria-labelledby="impact-label">
+              <label class="chip">
+                <input type="radio" name="impact" value="不急" />
+                不急
+              </label>
+              <label class="chip">
+                <input type="radio" name="impact" value="有点影响" />
+                有点影响
+              </label>
+              <label class="chip">
+                <input type="radio" name="impact" value="已经卡住" />
+                已经卡住
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="block" for="message">
+              你想说的
+              <span class="hint">请不要写自己的名字、工号，或能对上号的细节。</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              maxlength="4000"
+              placeholder="直接写就行。不用打招呼，也不用署名。"
+            ></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="submit-btn">匿名投入</button>
+          </div>
+        </form>
+
+        <p id="pii-warning" class="note hidden" role="status"></p>
+        <p id="status" class="status hidden" role="status"></p>
+
+        <div id="done" class="done hidden">
+          <h2>已经投进去了</h2>
+          <p>这张纸上没有你的名字。关掉页面即可。</p>
+        </div>
+      </article>
+
+      <footer>
+        不使用 cookies，不挂统计脚本。打开网页时，托管方仍可能在服务器日志里看到访问，但那不会写进意见结果。
+      </footer>
+    </main>
+    <script src="./config.js"></script>
+    <script src="./survey.js"></script>
+  </body>
+</html>

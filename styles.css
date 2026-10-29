@@ -1,0 +1,348 @@
+:root {
+  --bg: #efe7d8;
+  --bg-deep: #e4d8c4;
+  --paper: #fffaf1;
+  --ink: #221c16;
+  --ink-soft: #5e554a;
+  --line: #d4c6ae;
+  --seal: #a32020;
+  --seal-soft: #f3d6d2;
+  --ok: #2b5a3c;
+  --ok-soft: #d7eadc;
+  --warn: #8a5a12;
+  --warn-soft: #f4e3c2;
+  --shadow: 0 18px 50px rgba(68, 48, 24, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+    "Microsoft YaHei", ui-sans-serif, sans-serif;
+  line-height: 1.65;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.55), transparent 36%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(90, 70, 40, 0.03) 3px
+    ),
+    var(--bg);
+}
+
+a {
+  color: var(--seal);
+}
+
+.wrap {
+  width: min(720px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 64px;
+}
+
+.letter {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 36px 32px 32px;
+  position: relative;
+}
+
+.letter:before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(163, 32, 32, 0.12);
+  pointer-events: none;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+  font-size: clamp(32px, 6vw, 44px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.seal {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--seal);
+  box-shadow: inset 0 0 0 2px var(--seal);
+  color: var(--seal);
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 15px;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  transform: rotate(-9deg);
+}
+
+.promises {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.promises li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.promises li:before {
+  content: "○";
+  color: var(--seal);
+  line-height: 1.4;
+}
+
+label.block,
+.legend {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips input,
+.hp {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.chip:has(input:checked) {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.field {
+  margin-bottom: 22px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+textarea:focus,
+input[type="url"]:focus,
+input[type="text"]:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+button,
+.btn {
+  appearance: none;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 46px;
+  padding: 0 22px;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+button.secondary,
+.btn.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.note,
+.status {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+.note {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.status.ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.status.err {
+  background: var(--seal-soft);
+  color: var(--seal);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.done {
+  text-align: center;
+  padding: 28px 8px 8px;
+}
+
+.done h2 {
+  margin: 0 0 8px;
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-size: 30px;
+}
+
+.done p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+footer {
+  margin-top: 22px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.setup ol {
+  padding-left: 1.2em;
+}
+
+.setup li {
+  margin: 0 0 12px;
+}
+
+.setup textarea,
+.setup input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font: inherit;
+}
+
+.codebox {
+  position: relative;
+}
+
+pre {
+  overflow: auto;
+  max-height: 280px;
+  padding: 12px;
+  background: #221c16;
+  color: #f4ead8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: calc(100% - 20px);
+    padding-top: 18px;
+  }
+
+  .letter {
+    padding: 24px 18px 22px;
+  }
+
+  .seal {
+    width: 64px;
+    height: 64px;
+    font-size: 13px;
+  }
+}
